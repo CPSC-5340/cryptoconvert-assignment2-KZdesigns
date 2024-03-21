@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct Converter: View {
+struct USDConverter: View {
     
     @ObservedObject var viewModel = CurrencyConverterViewModel()
+    let titleText: String = "1 USD Exchange Rate"
     
     var body: some View {
+        Text(titleText)
+            .font(.system(size: 22))
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                 ForEach(viewModel.listOfCards) {
@@ -19,6 +22,7 @@ struct Converter: View {
                         .onTapGesture {
                             viewModel.flip(card: card)
                         }
+                        .padding(15)
                 }
             }
         }
@@ -32,5 +36,5 @@ struct Converter: View {
 
 
 #Preview {
-    Converter()
+    USDConverter()
 }

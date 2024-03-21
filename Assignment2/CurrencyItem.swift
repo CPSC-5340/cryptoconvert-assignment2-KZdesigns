@@ -21,7 +21,7 @@ struct CurrencyItem: View {
 }
 
 #Preview {
-    CurrencyItem(card: ConvertModel(cardContent: CurrencyItemModel(currencyName: "", currencyCode: "", currencyFlag: "", multiplier: 1)))
+    CurrencyItem(card: ConvertModel(cardContent: CurrencyItemModel(currencyName: "US Dollar", currencyCode: "USD", currencyFlag: "🇺🇸", multiplier: 1)))
 }
 
 
@@ -33,16 +33,18 @@ struct FrontCurrencyItem: View {
         VStack {
             HStack {
                 Text(card.currencyFlag)
+                    .font(.system(size: 64))
                 Spacer()
             }
             HStack {
                 Spacer()
                 Text(card.currencyCode)
+                    .font(.system(size: 32))
             }
         }
         .frame(width: 130, height: 130)
         .padding()
-        .background(.blue)
+        .background(.mint)
         
     }
 }
@@ -55,11 +57,16 @@ struct BackCurrencyItem: View {
         VStack {
             HStack {
                 Text(card.currencyName)
+                    .font(.system(size: 18))
+                    .foregroundStyle(.white)
                 Spacer()
             }
             HStack {
                 Spacer()
                 Text(String(card.multiplier))
+                    .font(.system(size: 24))
+                    .foregroundStyle(.white)
+                    .padding(20)
             }
         }
         .frame(width: 130, height: 130)
