@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CryptoConverter: View {
+    @ObservedObject var viewModel = ConverterViewModel()
     @State var userInput: String = ""
     
     var body: some View {
@@ -21,42 +22,25 @@ struct CryptoConverter: View {
         
         VStack {
             List {
-                HStack {
-                    Text("US Dollar")
-                    Spacer()
-                    Text("23450.0")
-                }
-                HStack {
-                    Text("Ethereum")
-                    Spacer()
-                    Text("14.3")
-                }
-                HStack {
-                    Text("Tether")
-                    Spacer()
-                    Text("23450.0")
-                }
-                HStack {
-                    Text("BNB")
-                    Spacer()
-                    Text("77.2")
-                }
-                HStack {
-                    Text("USD Coin")
-                    Spacer()
-                    Text("23454.0")
-                }
-                HStack {
-                    Text("XRP")
-                    Spacer()
-                    Text("62113.0")
+                ForEach(viewModel.listOfRows) {
+                    row in CryptoItem(row: row)
                 }
             }
             .listStyle(.grouped)
         }
+        .onAppear {
+            viewModel.fetchRows()
+        }
+        .onChange(of: userInput) { _ in
+            if let amount = Double(userInput) {
+                viewModel.conversion(userInput: amount)
+            }
+            
+        }
     }
-      
 }
+
+
 
 #Preview {
     CryptoConverter()
