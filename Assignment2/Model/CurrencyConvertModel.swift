@@ -20,15 +20,3 @@ struct CurrencyItemModel {
     let currencyFlag: String
     let multiplier: Double
 }
-
-struct CryptoConverterModel<SomeType> : Identifiable {
-    let id = UUID()
-    let rowContent: SomeType
-    var calculatedAmount: Double = 0
-}
-
-struct CryptoItemModel {
-    let cryptoName: String
-    let cryptoCode: String
-    let multiplier: Double
-}

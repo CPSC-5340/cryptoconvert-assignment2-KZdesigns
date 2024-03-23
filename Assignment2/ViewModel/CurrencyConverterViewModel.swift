@@ -8,7 +8,7 @@
 import Foundation
 
 
-class ConverterViewModel: ObservableObject {
+class CurrencyConverterViewModel: ObservableObject {
     
     @Published private(set) var listOfCards = [CurrencyConvertModel<CurrencyItemModel>]()
     @Published private(set) var listOfRows = [CryptoConverterModel<CryptoItemModel>]()

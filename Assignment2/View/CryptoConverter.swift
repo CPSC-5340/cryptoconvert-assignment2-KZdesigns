@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CryptoConverter: View {
-    @ObservedObject var viewModel = ConverterViewModel()
+    @ObservedObject var viewModel = CryptoConverterViewModel()
     @State var userInput: String = ""
     
     var body: some View {

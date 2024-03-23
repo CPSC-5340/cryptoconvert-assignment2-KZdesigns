@@ -9,7 +9,7 @@ import SwiftUI
 
 struct USDConverter: View {
     
-    @ObservedObject var viewModel = ConverterViewModel()
+    @ObservedObject var viewModel = CurrencyConverterViewModel()
     let titleText: String = "1 USD Exchange Rate"
     
     var body: some View {
